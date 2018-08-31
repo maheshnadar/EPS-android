@@ -78,7 +78,7 @@
         android:layout_height="33dp"
         android:layout_marginTop="15dp"
         android:background="#4062ec"
-        android:onClick="search"
+        android:onClick="searchfn"
         android:text="@android:string/search_go"
         android:textColor="@android:color/white"
         android:textSize="18sp"
@@ -101,13 +101,13 @@
         tools:layout_editor_absoluteX="20dp"
         tools:textAllCaps="false" />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/detailscroll"
         android:layout_width="fill_parent"
         android:layout_height="220dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search">
 
@@ -127,6 +127,7 @@
                 android:id="@+id/details.min_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
+                android:onClick="detailsTogglefn"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/minimize" />
