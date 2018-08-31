@@ -83,7 +83,7 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/region_spinner"
-        tools:layout_editor_absoluteX="20dp" />
+         />
 
     <Button
         android:id="@+id/approval"
@@ -96,241 +96,263 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="invisible"
-
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="20dp"
         tools:textAllCaps="false" />
 
-    <ScrollView
-        android:id="@+id/detailscroll"
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/result"
         android:layout_width="fill_parent"
-        android:layout_height="220dp"
-        android:clipToPadding="false"
-        android:fillViewport="true"
+        android:layout_height="280dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/details"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/search"
-            app:layout_constraintTop_toBottomOf="@+id/search"
-            tools:layout_editor_absoluteX="6dp">
+        <ScrollView
+            android:id="@+id/detailscroll"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:fillViewport="true"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details.branch.key">
 
-            <ImageView
-                android:id="@+id/details.min_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:onClick="detailsTogglefn"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/detailslayout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/minimize" />
+                app:layout_constraintTop_toBottomOf="@+id/detailscroll">
 
-            <TextView
-                android:id="@+id/details.branch.key"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_marginLeft="10dp"
-                android:text="Feeder Branch -"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@+id/details.min_icon"
-                app:layout_constraintTop_toTopOf="@+id/details.min_icon" />
+                <LinearLayout
+                    android:id="@+id/details.bank"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/details.branch.value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Addanki"
-                app:layout_constraintLeft_toRightOf="@+id/details.branch.key" />
+                    <TextView
+                        android:id="@+id/details.bank.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bank" />
 
-
-            <LinearLayout
-                android:id="@+id/details.bank"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.min_icon">
-
-                <TextView
-                    android:id="@+id/details.bank.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Bank" />
-
-                <TextView
-                    android:id="@+id/details.bank.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="SBI" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/details.cra"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.bank">
-
-                <TextView
-                    android:id="@+id/details.cra.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CRA" />
-
-                <TextView
-                    android:id="@+id/details.cra.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CMS" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/details.bank.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SBI" />
+                </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/details.100"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.cra">
+                <LinearLayout
+                    android:id="@+id/details.cra"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.bank">
 
-                <TextView
-                    android:id="@+id/details.100.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="100" />
+                    <TextView
+                        android:id="@+id/details.cra.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CRA" />
 
-                <TextView
-                    android:id="@+id/details.100.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="100000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/details.200"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.100">
-
-                <TextView
-                    android:id="@+id/details.200.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="200" />
-
-                <TextView
-                    android:id="@+id/details.200.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="200000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/details.500"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.200">
-
-                <TextView
-                    android:id="@+id/details.500.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="500" />
-
-                <TextView
-                    android:id="@+id/details.500.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/details.2000"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.500">
-
-                <TextView
-                    android:id="@+id/details.2000.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2000" />
-
-                <TextView
-                    android:id="@+id/details.2000.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="20000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/details.total"
-                android:layout_width="fill_parent"
-                android:layout_height="35dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginStart="30dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details.2000">
-
-                <TextView
-                    android:id="@+id/details.total.key"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Total" />
-
-                <TextView
-                    android:id="@+id/details.total.value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="500000" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/details.cra.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CMS" />
+                </LinearLayout>
 
 
-        </android.support.constraint.ConstraintLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:id="@+id/details.100"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.cra">
+
+                    <TextView
+                        android:id="@+id/details.100.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="100" />
+
+                    <TextView
+                        android:id="@+id/details.100.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="100000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details.200"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.100">
+
+                    <TextView
+                        android:id="@+id/details.200.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="200" />
+
+                    <TextView
+                        android:id="@+id/details.200.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="200000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details.500"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.200">
+
+                    <TextView
+                        android:id="@+id/details.500.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="500" />
+
+                    <TextView
+                        android:id="@+id/details.500.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details.2000"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.500">
+
+                    <TextView
+                        android:id="@+id/details.2000.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2000" />
+
+                    <TextView
+                        android:id="@+id/details.2000.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="20000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/details.total"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/details.2000">
+
+                    <TextView
+                        android:id="@+id/details.total.key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total" />
+
+                    <TextView
+                        android:id="@+id/details.total.value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="500000" />
+                </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/details.min_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:onClick="detailsTogglefn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/minimize" />
+
+        <TextView
+            android:id="@+id/details.branch.key"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="Feeder Branch -"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/details.min_icon"
+            app:layout_constraintTop_toTopOf="@+id/details.min_icon" />
+
+        <TextView
+            android:id="@+id/details.branch.value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Addanki"
+            app:layout_constraintLeft_toRightOf="@+id/details.branch.key" />
+
+        <TextView
+            android:id="@+id/details.action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action  :"
+            app:layout_constraintLeft_toLeftOf="@+id/details.branch.key"
+            app:layout_constraintTop_toBottomOf="@+id/detailscroll" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            app:srcCompat="@drawable/edit"
+            tools:layout_editor_absoluteX="189dp"
+            tools:layout_editor_absoluteY="245dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
 
     <ProgressBar
         android:id="@+id/loader"

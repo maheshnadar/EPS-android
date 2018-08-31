@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity  {
     //String[] branchName={"Mumbai","delhi","chennai"};
   //  String[] regionName={"worli","sion","dadar"};
     ArrayList<String> bankNames,branchName,regionName;
-    ConstraintLayout detailsLayout;
+    ConstraintLayout resultLayout;
     Spinner bankSpinner,branchSpinner,regionSpinner;
     Button searchBtn,approvalBtn;
     ScrollView detailScroll;
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity  {
         bankSpinner = (Spinner) findViewById(R.id.bank_spinner);
         branchSpinner = (Spinner) findViewById(R.id.branch_spinner);
         regionSpinner = (Spinner) findViewById(R.id.region_spinner);
-        detailsLayout = (ConstraintLayout) findViewById(R.id.details);
+        resultLayout = (ConstraintLayout) findViewById(R.id.result);
         searchBtn = (Button) findViewById(R.id.search);
         approvalBtn = (Button) findViewById(R.id.approval);
         detailScroll=(ScrollView) findViewById(R.id.detailscroll);
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity  {
             Toast.makeText(getApplicationContext(),"Please Select region", Toast.LENGTH_LONG).show();
             return;
         }
-        detailScroll.setVisibility(View.VISIBLE);
+        resultLayout.setVisibility(View.VISIBLE);
         approvalBtn.setVisibility(View.VISIBLE);
         // Do something in response to button click
 
@@ -240,11 +240,19 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void detailsTogglefn(View view){
+        if(detailScroll.getVisibility()== View.INVISIBLE)
+        {
+            detailScroll.setVisibility(View.VISIBLE);
+
+        }
+        else{
+            detailScroll.setVisibility(View.INVISIBLE);
+        }
 
     }
 
     public void hideSearchResult(){
-        detailScroll.setVisibility(View.INVISIBLE);
+        resultLayout.setVisibility(View.INVISIBLE);
         approvalBtn.setVisibility(View.INVISIBLE);
     }
     public void showLoader(){
