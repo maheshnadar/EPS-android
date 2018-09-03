@@ -1,6 +1,7 @@
 package com.example.eps.eps;
 
 import android.app.ProgressDialog;
+import android.preference.PreferenceActivity;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +13,29 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 //import com.example.eps.eps.ApiCall;
 
@@ -24,6 +45,7 @@ public class MainActivity extends AppCompatActivity  {
    // String[] bankNames={"BOI","SBI","HDFC","PNB","OBC"};
     //String[] branchName={"Mumbai","delhi","chennai"};
   //  String[] regionName={"worli","sion","dadar"};
+
     ArrayList<String> bankNames,branchName,regionName;
     ConstraintLayout resultLayout;
     Spinner bankSpinner,branchSpinner,regionSpinner;
@@ -31,11 +53,14 @@ public class MainActivity extends AppCompatActivity  {
     ScrollView detailScroll;
     ProgressBar loader;
     ArrayAdapter bankAdapter,branchAdapter,regionAdapter;
+    TextView temp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //apiCall = new HttpUtils();
         initializeUI();
         createlist();
         initializeAdapter();
@@ -43,6 +68,9 @@ public class MainActivity extends AppCompatActivity  {
         bankSpinner.setOnItemSelectedListener(bank_listener);
         branchSpinner.setOnItemSelectedListener(branch_listener);
         regionSpinner.setOnItemSelectedListener(region_listener);
+
+
+
     }
 
     public void initializeUI(){
@@ -54,6 +82,8 @@ public class MainActivity extends AppCompatActivity  {
         approvalBtn = (Button) findViewById(R.id.approval);
         detailScroll=(ScrollView) findViewById(R.id.detailscroll);
         loader=findViewById(R.id.loader);
+
+        temp=findViewById(R.id.temp);
     }
     public void createlist(){
         bankNames = new ArrayList<>();
@@ -267,5 +297,82 @@ public class MainActivity extends AppCompatActivity  {
     // event listener
 
 
+// add http request
 
+    public void apicall(){
+//        RequestQueue queue = Volley.newRequestQueue(this);
+       String url ="http://www.google.com";
+
+        RequestQueue queue1 = Volley.newRequestQueue(this);
+        StringRequest sr = new StringRequest(Request.Method.POST,"https://reqres.in/api/users", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                temp.setText("Response is: "+ response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                            temp.setText("That didn't work!"+error);
+                NetworkResponse networkResponse = error.networkResponse;
+                Toast.makeText(getApplicationContext(),networkResponse.toString(), Toast.LENGTH_LONG).show();
+//                if (networkResponse != null && networkResponse.statusCode == HttpStatus.SC_UNAUTHORIZED) {
+//                    // HTTP Status Code: 401 Unauthorized
+//                }
+            }
+        }){
+//            @Override
+//            protected Map<String,String> getParams(){
+//
+//                //going in string format
+//                Map<String,String> params = new HashMap<String, String>();
+//                params.put("user","value1");
+//                params.put("pass","value2");
+//                params.put("comment","value3");
+//                params.put("comment_post_ID","value4");
+//                params.put("blogId","value5");
+//
+//                return params;
+//            }
+
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError  {
+            //adding herder field
+//                Map<String,String> params = new HashMap<String, String>();
+//                params.put("Content-Type","application/x-www-form-urlencoded");
+//                return params;
+//            }
+
+            @Override
+            public String getBodyContentType() {
+                //adding only contenttype field
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                //sending body on post request
+
+                JSONObject jsonBody = new JSONObject();
+
+                try {
+                    jsonBody.put("name", "morpheus");
+                    jsonBody.put("job", "leader");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+                final String requestBody = jsonBody.toString();
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+        queue1.add(sr);
+    }
 }

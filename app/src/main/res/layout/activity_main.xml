@@ -114,7 +114,7 @@
         <ScrollView
             android:id="@+id/detailscroll"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="200dp"
             android:fillViewport="true"
             app:layout_constraintRight_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details.branch.key">
@@ -343,12 +343,22 @@
             app:layout_constraintTop_toBottomOf="@+id/detailscroll" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/edit_details"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            app:srcCompat="@drawable/edit"
-            tools:layout_editor_absoluteX="189dp"
-            tools:layout_editor_absoluteY="245dp" />
+            android:layout_marginLeft="40dp"
+            app:layout_constraintLeft_toRightOf="@+id/details.action"
+            app:layout_constraintTop_toTopOf="@+id/details.action"
+            app:srcCompat="@drawable/edit" />
+
+        <ImageView
+            android:id="@+id/zoom_edit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="25dp"
+            app:layout_constraintLeft_toRightOf="@+id/edit_details"
+            app:layout_constraintTop_toTopOf="@+id/details.action"
+            app:srcCompat="@drawable/zoom" />
 
 
     </android.support.constraint.ConstraintLayout>
@@ -365,5 +375,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/search"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="190dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </android.support.constraint.ConstraintLayout>
