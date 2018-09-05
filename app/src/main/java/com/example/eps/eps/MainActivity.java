@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("Indent Generation");
         //apiCall = new HttpUtils();
         initializeUI();
         createlist();
@@ -98,6 +99,12 @@ public class MainActivity extends AppCompatActivity  {
                 //your code
                 Intent intent = new Intent(MainActivity.this, IndentsRaised.class);
                 startActivity(intent);
+                return true;
+            case R.id.menuoption_indent_revision:
+                //your code
+                // EX : call intent if you want to swich to other activity
+                Intent intent2 = new Intent(MainActivity.this, IndentRevision.class);
+                startActivity(intent2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

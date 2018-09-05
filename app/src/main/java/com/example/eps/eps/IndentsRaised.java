@@ -13,7 +13,7 @@ public class IndentsRaised extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.indent_raised);
-
+        this.setTitle("Indent Raised");
        // Button orderButton = (Button) findViewById(R.id.end);
 
     }
@@ -40,6 +40,12 @@ public class IndentsRaised extends AppCompatActivity {
                 //your code
 //                Intent intent = new Intent(IndentsRaised.this, IndentsRaised.class);
 //                startActivity(intent);
+                return true;
+            case R.id.menuoption_indent_revision:
+                //your code
+                // EX : call intent if you want to swich to other activity
+                Intent intent2 = new Intent(IndentsRaised.this, IndentRevision.class);
+                startActivity(intent2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
