@@ -1,11 +1,15 @@
 package com.example.eps.eps;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.preference.PreferenceActivity;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -73,6 +77,33 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu); //your file name
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.menuoption_indent_generation:
+                //your code
+                // EX : call intent if you want to swich to other activity
+
+                return true;
+            case R.id.menuoption_indent_raised:
+                //your code
+                Intent intent = new Intent(MainActivity.this, IndentsRaised.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
     public void initializeUI(){
         bankSpinner = (Spinner) findViewById(R.id.bank_spinner);
         branchSpinner = (Spinner) findViewById(R.id.branch_spinner);

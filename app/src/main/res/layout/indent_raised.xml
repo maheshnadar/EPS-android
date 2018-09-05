@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/raised.details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/branch.key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:text="Feeder Branch   -"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/branch.value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Addakani"
+                app:layout_constraintLeft_toRightOf="@+id/branch.key"
+                app:layout_constraintTop_toTopOf="@+id/branch.key" />
+
+            <TextView
+                android:id="@+id/bank.key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Bank   -"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/branch.key"
+                app:layout_constraintTop_toBottomOf="@+id/branch.key" />
+
+            <TextView
+                android:id="@+id/amount.key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Amount   -"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/bank.key"
+                app:layout_constraintTop_toBottomOf="@+id/bank.key" />
+
+            <TextView
+                android:id="@+id/bank.value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="State Bank Of India"
+                app:layout_constraintLeft_toRightOf="@+id/bank.key"
+                app:layout_constraintTop_toTopOf="@+id/bank.key" />
+
+            <TextView
+                android:id="@+id/amount.value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="4500000"
+                app:layout_constraintLeft_toRightOf="@+id/amount.key"
+                app:layout_constraintTop_toTopOf="@+id/amount.key" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/edit_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amount.key">
+
+                <LinearLayout
+                    android:id="@+id/inside_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actualindent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_100_value"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:selectAllOnFocus="false"
+                            android:text="1300000"
+                            app:layout_constraintLeft_toLeftOf="@+id/edit_100_key"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_100_key" />
+
+                        <TextView
+                            android:id="@+id/edit_100_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Denomination 1 (100)"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_200_value"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="0"
+                            app:layout_constraintLeft_toLeftOf="@+id/edit_200_key"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_200_key" />
+
+                        <TextView
+                            android:id="@+id/edit_200_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Denomination 2 (200)"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/inside_layout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inside_layout1">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_500_value"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:autoText="false"
+                            android:inputType="number"
+                            android:text="250000"
+                            app:layout_constraintLeft_toLeftOf="@+id/edit_500_key"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_500_key" />
+
+                        <TextView
+                            android:id="@+id/edit_500_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Denomination 3 (500)"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_2000_value"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="8000000"
+                            app:layout_constraintLeft_toLeftOf="@+id/edit_2000_key"
+                            app:layout_constraintTop_toBottomOf="@+id/edit_2000_key" />
+
+                        <TextView
+                            android:id="@+id/edit_2000_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Denomination 4 (2000)"
+                            android:textSize="14sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/inside_layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cash_availability">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_cash_100"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:hint="100"
+                            android:inputType="number"
+                            android:selectAllOnFocus="false"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_cash_200"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:hint="200"
+                            android:inputType="number"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/inside_layout4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inside_layout3">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_cash_500"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+
+                            android:hint="500"
+                            android:inputType="number" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edit_cash_2000"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="2000"
+                            android:inputType="number" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/actualindent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Actual Indent"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cash_availability"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="Cash Availability"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inside_layout2" />
+
+                <TextView
+                    android:id="@+id/revise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Revise Comment"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inside_layout4" />
+
+                <EditText
+                    android:id="@+id/revise_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="80dp"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"
+                    android:lines="8"
+                android:minLines="6"
+                    android:maxLines="10"
+                    android:hint="enter comment"
+                    app:layout_constraintLeft_toLeftOf="@+id/revise"
+
+                    app:layout_constraintTop_toBottomOf="@+id/revise" />
+
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:text="Back"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_dark"
+            android:text="Submit For Revision"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
